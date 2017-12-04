@@ -1,0 +1,42 @@
+int x = 100;
+int dx = 5;
+int start = 0;
+int stop = 0;
+int elapsed = 0;
+
+void setup() {
+  size(800,800);
+  surface.setResizable(true);
+frameRate(60);
+start=millis();
+println("start:"+ start);
+}
+
+void draw() {
+  background (155);
+  noFill();
+  fill(200,100,50);
+  rectMode(CENTER);
+  rect(mouseX,mouseY, 50, 50);
+  fill(100,200,50);
+  float x1 = map(mouseX, 0, width, 400, 200);
+  ellipse(x1, 150, 50, 50);
+  float mx = constrain(mouseX, 0, 4000);
+  fill(50,60,200);
+  rect(mx-10, 200, 40, 20);
+  fill(200,0,0);
+  ellipse(x, 100, 80, 80);
+  x += dx;
+  if(x + 25 > width || x-25 < 0) {
+    dx *= -1;
+  }
+  println("frames;"+frameCount+", milliseconds:"+millis()+", frameRate"+ frameRate);
+  if (frameCount %80==0) {
+    fill(210,100,200);
+  rect(width/2.0,height/2.0,210,210);
+  stop=millis();
+  elapsed=stop-start;
+  start=stop;
+  println("elapsed:"+elapsed);
+}
+}
