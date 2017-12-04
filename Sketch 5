@@ -1,0 +1,65 @@
+float x = 530;
+float y = 150;
+float w = 50;
+float h = 50;
+float z = 100;
+float speed = 0;
+float gravity = 0.1;
+float diameter = 30;
+float i = 535;
+float o = 265;
+float p = 75;
+float j = 75;
+float l = 100;
+float dx = 1;
+void setup(){
+surface.setTitle("s17magd150lab05_Dvorak");
+size(600,600);
+}
+void draw(){
+  background(200);
+if(mousePressed){
+  if(mouseX>x && mouseX <x+w && mouseY>y && mouseY <y+h){
+    fill(210,105,30);
+    rect(200, z, 50, 50);
+    rect(300, z, 50, 50);
+    z = z + speed;
+    speed = speed + gravity;
+    if (z > height){
+      speed = speed * -0.95;
+      z = height;
+      }
+    }
+  }
+    if(mousePressed){
+      if(mouseX>i && mouseX <i+p && mouseY>o && mouseY <o+j){
+        fill(255, 0, 0);
+       ellipse(l, 200, 50, 50);
+       ellipse(l, 300, 50, 50);
+       ellipse(l, 400, 50, 50);
+       ellipse(l, 500, 50, 50);
+       l = l + dx;
+       if(l > width) {
+         dx = -1;
+       }
+       if(x < 0) {
+         dx = 1;
+       }
+}
+}
+fill(0);
+rect(0,100,500,50);
+rect(0,100,50,600);
+rect(450,100,50,600);
+rect(0,550,500,50);
+fill(160,82,45);
+rect(500,100,350,500);
+fill(255,235,205);
+rect(530,150,50,50);
+fill(0);
+text("Bounce",535,175);
+fill(255,235,205);
+ellipse(550,300,75,75);
+fill(0);
+text("move",535,300);
+}
