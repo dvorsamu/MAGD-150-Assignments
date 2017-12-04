@@ -1,0 +1,58 @@
+float x = 100;
+float y = 0;
+float speed = 0;
+float gravity = 0.1;
+float diameter = 30;
+float margin = 2.5;
+
+void setup(){
+    surface.setResizable(true);
+    surface.setTitle("s17magd150lab04_Dvorak");
+    size(600,600);
+}
+
+void draw(){
+
+   if (mouseY < height/2) {
+    background(255,0,0);
+   } else {
+     background(0,255,0);
+   }
+    if(keyPressed) {
+     fill(0);
+     for(int k = 0; k < 40; k++){
+       for (int i=0; i<80; i++){
+         ellipse(50+ i*10, 50 + k*10, 6,6);
+       }
+     }
+   }
+   if (mouseX < width/2) {
+     fill(0,0,255);
+     rect(mouseX,mouseY,50,50);
+   }
+   else{
+     fill(0,0,255);
+     ellipse(mouseX,mouseY,50,50);
+   }
+   if (mousePressed) {
+     fill(0);
+     noStroke();
+     fill(40,150,0);
+    triangle(x, y, x, 50, 50,y);
+    fill(200,150,100);
+    rect(200,y,50,50);
+    fill(0,100,100);
+   rect(300,y,50,50);
+   fill(255,150,0);
+   ellipse(425, y, 50, 50);
+   fill(0,255,150);
+   rect(500, y, 50, 50);
+     y = y + speed;
+     speed = speed + gravity;
+     if (y > height){ 
+       speed = speed * -0.95;
+       y = height;
+     }
+   }
+  
+}
